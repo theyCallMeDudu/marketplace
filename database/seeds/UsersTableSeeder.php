@@ -19,6 +19,8 @@ class UsersTableSeeder extends Seeder
 //            'remember_token' => 'asdsd',
 //        ]);
 
-        factory(\App\User::class, 40)->create();
+        factory(\App\User::class, 40)->create()->each(function ($user){
+            $user->store()->save(factory(\App\Store::class)->make());
+        });
     }
 }
