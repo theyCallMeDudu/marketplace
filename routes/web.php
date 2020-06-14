@@ -119,3 +119,14 @@ Route::get('/model', function(){
 
     return \App\User::all();
 });
+
+// Route::get  - recupera algo
+// Route::post - cria algo
+// Route::put  - atualiza algo
+// Route:: patch - atualiza algo
+// Route::delete - remove algo
+// Route::options - retorna quais cabeçalhos um rota responde
+
+Route::get('/admin/stores', 'Admin\\StoreController@index');
+Route::get('/admin/stores/create', 'Admin\\StoreController@create');
+Route::post('/admin/stores/store', 'Admin\\StoreController@store');
