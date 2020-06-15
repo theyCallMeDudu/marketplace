@@ -1,43 +1,49 @@
-<h1>Criar loja</h1>
+@extends('layouts.app')
 
-<form action="/admin/stores/store" method="post">
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
-    <div>
-        <lable>Nome Loja</lable>
-        <input type="text" name="name">
-    </div>
+@section('content')
 
-    <div>
-        <lable>Descrição</lable>
-        <input type="text" name="description">
-    </div>
+    <h2>Criar loja</h2>
 
-    <div>
-        <lable>Telefone</lable>
-        <input type="text" name="phone">
-    </div>
+    <form action="{{route('admin.stores.store')}}" method="post">
+        @csrf
+        <div class="form-group">
+            <lable>Nome Loja</lable>
+            <input type="text" name="name" class="form-control">
+        </div>
 
-    <div>
-        <lable>Celular</lable>
-        <input type="text" name="mobile_phone">
-    </div>
+        <div class="form-group">
+            <lable>Descrição</lable>
+            <input type="text" name="description" class="form-control">
+        </div>
 
-    <div>
-        <lable>Slug</lable>
-        <input type="text" name="slug">
-    </div>
+        <div class="form-group">
+            <lable>Telefone</lable>
+            <input type="text" name="phone" class="form-control">
+        </div>
 
-    <div>
-        <lable>Usuário</lable>
-        <select name="user">
-            @foreach($users as $user)
-                <option value="{{$user->id}}">{{$user->name}}</option>
-            @endforeach
-        </select>
-    </div>
+        <div class="form-group">
+            <lable>Celular</lable>
+            <input type="text" name="mobile_phone" class="form-control">
+        </div>
 
-    <div>
-        <button type="submit">Criar loja</button>
-    </div>
+        <div class="form-group">
+            <lable>Slug</lable>
+            <input type="text" name="slug" class="form-control">
+        </div>
 
-</form>
+        <div class="form-group">
+            <lable>Usuário</lable>
+            <select name="user" class="form-control">
+                @foreach($users as $user)
+                    <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success ">Criar loja</button>
+        </div>
+
+    </form>
+
+@endsection
