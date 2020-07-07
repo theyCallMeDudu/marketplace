@@ -24,9 +24,15 @@
                         Editar
                     </a>
 
-                    <a href="{{route('admin.stores.destroy', ['store' => $store->id])}}" class="btn btn-sm btn-danger">
-                        Excluir
-                    </a>
+                    <div class="btn-group">
+                        <form action="{{route('admin.stores.destroy', ['store' => $store->id])}}" method="post">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Excluir
+                            </button>
+                        </form>
+                    </div>
 
                 </td>
             </tr>
